@@ -6,62 +6,38 @@
 Connect a NEMA 17 stepper motor to a TB6600 microstep driver
 and control the driver using an Arduino Mega.
 
-### Wiring
+## Wiring
 
-                     ┌─────────────────────┐
-                    │    Arduino Mega     │
-                    │                     │
-                    │   5V ───────┬────────────→ PUL+
-                    │             │
-                    │             └────────────→ DIR+
-                    │
-                    │   D2 ────────────────────→ PUL−
-                    │
-                    │   D3 ────────────────────→ DIR−
-                    │
-                    │   ENA: not connected
-                    └─────────────────────┘
+```text
+Arduino Mega                    TB6600
+────────────                    ──────
 
+5V ───────────────────────────→ PUL+
+ │
+ └────────────────────────────→ DIR+
 
-                              │
-                              ▼
+D2 ───────────────────────────→ PUL−
+D3 ───────────────────────────→ DIR−
 
-                    ┌─────────────────────┐
-                    │       TB6600        │
-                    │                     │
- Arduino 5V ───────→│ PUL+                │
- Arduino D2 ───────→│ PUL−                │
-                    │                     │
- Arduino 5V ───────→│ DIR+                │
- Arduino D3 ───────→│ DIR−                │
-                    │                     │
-       nothing ─────│ ENA+                │
-       nothing ─────│ ENA−                │
-                    │                     │
-                    │ A+ ─────────→ BLACK │
-                    │ A− ─────────→ GREEN │
-                    │ B+ ─────────→ RED   │
-                    │ B− ─────────→ BLUE  │
-                    │                     │
-                    │ VCC ←── +24V        │
-                    │ GND ←── 0V / −      │
-                    └─────────────────────┘
-                              │
-                              │
-                    ┌─────────▼───────────┐
-                    │      NEMA 17        │
-                    │                     │
-                    │ Black ─── A+        │
-                    │ Green ─── A−        │
-                    │ Red   ─── B+        │
-                    │ Blue  ─── B−        │
-                    └─────────────────────┘
+                                ENA+  not connected
+                                ENA−  not connected
 
 
-24V POWER SUPPLY:
+TB6600                          NEMA 17
+──────                          ───────
 
-     +24V ───────────────────→ TB6600 VCC
-      0V ────────────────────→ TB6600 GND
+A+ ───────────────────────────→ Black
+A− ───────────────────────────→ Green
+B+ ───────────────────────────→ Red
+B− ───────────────────────────→ Blue
+
+
+24V Power Supply               TB6600
+────────────────               ──────
+
++24V ─────────────────────────→ VCC
+0V / − ───────────────────────→ GND
+```
 
 ## Day 2 — Basic Step and Direction Control
 
