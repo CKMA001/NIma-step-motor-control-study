@@ -56,3 +56,19 @@ and DIR control the movement of a stepper motor.
 
 ### Question
 How can I precisely control the angle of rotation?
+
+
+## Day 3 — Angle Control & Debugging
+
+### Goal
+Convert a desired motor angle into the corresponding number of STEP pulses.
+
+### Progress
+- Calibrated the current setup:
+  - ~825 pulses ≈ 90°
+- Created an angle-to-step calculation:
+
+```cpp
+long steps_90 = 825;
+long angle = 90;
+long target_steps = steps_90 * angle / 90;
